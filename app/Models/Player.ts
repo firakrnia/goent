@@ -10,11 +10,10 @@ export default class Player extends BaseModel {
   public nama: string
 
   @column()
-  public tim: string
+  public namaTim: number
 
   @column()
   public foto_profil: string
-
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -23,7 +22,7 @@ export default class Player extends BaseModel {
   public updatedAt: DateTime
 
   @belongsTo(() => Tim, {
-    localKey: 'nama_tim'
+    localKey: 'namaTim'
   })
-  public nama_tim: BelongsTo<typeof Tim>
+  public tim: BelongsTo<typeof Tim>
 }

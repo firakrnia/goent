@@ -1,19 +1,13 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
-import Eliminasi from './Eliminasi'
+import Turnamen from './Turnamen'
 
-export default class Turnamen extends BaseModel {
+export default class Eliminasi extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public namaPertandingan: string
-
-  @column()
-  public cabangOlahraga: string
-
-  @column()
-  public tipePemain: number
+  public modeEliminasi: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -21,13 +15,13 @@ export default class Turnamen extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @manyToMany(() => Eliminasi, {
+  @manyToMany(() => Turnamen, {
     localKey: 'id',
-    pivotForeignKey: 'turnamen_id',
+    pivotForeignKey: 'eliminasi_id',
     relatedKey: 'id',
-    pivotRelatedForeignKey: 'eliminasi_id',
+    pivotRelatedForeignKey: 'turnamen_id',
     pivotColumns: ['urutan'],
     pivotTimestamps: false
   })
-  public eliminasi: ManyToMany<typeof Eliminasi>
+  public eliminasi: ManyToMany<typeof Turnamen>
 }
