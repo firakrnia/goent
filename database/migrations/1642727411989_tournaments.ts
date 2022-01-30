@@ -11,11 +11,6 @@ export default class Tournaments extends BaseSchema {
       table.enum('tipe_pemain',['individu', 'team'])
       table.timestamps(true,true)
 
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
-      // table.timestamp('created_at', { useTz: true })
-      // table.timestamp('updated_at', { useTz: true })
     })
   }
 

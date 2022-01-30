@@ -11,11 +11,6 @@ export default class TurnamenEliminasis extends BaseSchema {
       table.integer('urutan').notNullable()
       table.timestamps(true, true)
 
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
-      // table.timestamp('created_at', { useTz: true })
-      // table.timestamp('updated_at', { useTz: true })
     })
   }
 

@@ -9,11 +9,6 @@ export default class Eliminasis extends BaseSchema {
       table.enum('mode_eliminasi', ['grup', 'penyisihan', 'gugur_tunggal'])
       table.timestamps(true, true)
 
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
-      // table.timestamp('created_at', { useTz: true })
-      // table.timestamp('updated_at', { useTz: true })
     })
   }
 
