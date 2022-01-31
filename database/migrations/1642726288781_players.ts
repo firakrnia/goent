@@ -7,7 +7,7 @@ export default class Players extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
       table.string('nama').notNullable()
-      table.integer('nama_tim').unsigned().references('id').inTable('tim')
+      table.integer('nama_tim').unsigned().references('id').inTable('tims')
       table.string('foto_profil').nullable()
       table.timestamps(true, true)
 

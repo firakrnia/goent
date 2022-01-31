@@ -13,7 +13,7 @@ export default class Player extends BaseModel {
   public namaTim: number
 
   @column()
-  public foto_profil: string
+  public fotoProfil: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

@@ -6,10 +6,6 @@ export default class AuthController {
     public async register ({request, auth, response}: HttpContextContract){
         const validationSchema = schema.create({
             nama: schema.string({trim:true}),
-            username: schema.string({trim:true}, [
-                rules.maxLength(50),
-                rules.unique({table: 'users', column: 'username'})
-            ]),
             email: schema.string({trim:true}, [
                 rules.email(),
                 rules.maxLength(255),
@@ -38,14 +34,14 @@ export default class AuthController {
     }
 
     public async login({ request, response, auth }: HttpContextContract) {
-        const { uid, password } = request.all()
-        // const { uid, password } = request.only(['uid', 'password'])
+        const email = request.input('email')
+        const password = request.input('password')
 
         try {
-            await auth.attempt(uid, password)
-            return response.json( { message: 'Anda Berhasil login!' })
-        } catch (error) {
-            return response.json( { message: 'Username, email atau password salah!' , other: error})
+            const token = await auth.attempt(email, password)
+            return token
+        } catch {
+        return response.badRequest('Invalid credentials')
         }
         
     }

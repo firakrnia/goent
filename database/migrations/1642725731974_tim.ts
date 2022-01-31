@@ -1,13 +1,13 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class Tims extends BaseSchema {
-  protected tableName = 'tim'
+  protected tableName = 'tims'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
       table.string('nama_tim').notNullable()
-      table.string('logo_tim').notNullable()
+      table.string('logo_tim').nullable()
       table.timestamps(true, true)
 
       /**

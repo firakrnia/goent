@@ -11,7 +11,7 @@ export default class Tim extends BaseModel {
   public namaTim: string
 
   @column()
-  public logoTim: number
+  public logoTim?: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

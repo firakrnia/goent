@@ -7,10 +7,10 @@ export default class TurnamenEliminasi extends BaseModel {
   public id: number
 
   @column()
-  public turnamen_id: number
+  public turnamenId: number
 
   @column()
-  public eliminasi_id: number
+  public eliminasiId: number
 
   @column()
   public urutan: number

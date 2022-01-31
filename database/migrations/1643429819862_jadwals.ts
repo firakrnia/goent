@@ -9,7 +9,7 @@ export default class Jadwals extends BaseSchema {
       table.integer('turnel_id').unsigned().notNullable().references('turnamen_eliminasi.id')
       table.string('nama').notNullable()
       table.dateTime('tanggal').notNullable()
-      table.integer('tim_id').unsigned().notNullable().references('tim.id')
+      table.integer('tim_id').unsigned().notNullable().references('tims.id')
       table.timestamps(true, true)
 
       
